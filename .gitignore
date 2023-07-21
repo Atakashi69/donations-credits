@@ -1,3 +1,11 @@
 .idea/
 
-.env
+/.env
+/.config
+/.git
+/.replit
+/replit.nix
+/poetry.lock
+/pyproject.toml
+/__pycache__
+/venv
