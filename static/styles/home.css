@@ -1,0 +1,128 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:root {
+    --main-color: #f59c07;
+    --main-color-dark: #f57507;
+    --grey: #262626;
+    --grey-dark: #1f1f1f;
+    --grey-light: #303030;
+}
+
+body {
+    background-color: var(--grey-dark);
+    color: white;
+    font-family: 'Helvetica Neue', 'Segoe UI', 'Arial', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--grey);
+    padding: 8px 16px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    transition: background .1s ease-in-out;
+}
+
+header a:hover {
+    background-color: var(--grey-light);
+}
+
+.credits_settings {
+    padding: 16px;
+}
+
+input {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1em;
+    margin: 16px 0 16px 8px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 7px;
+    background: var(--grey-light);
+    border-radius: 5px;
+    background-image: linear-gradient(265deg, var(--main-color), var(--main-color-dark));
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--main-color);
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .1s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: var(--main-color-dark);
+}
+
+input[type=range]::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+input[type="number"],
+input[type="text"] {
+    border-radius: 5px;
+    border: solid 1px var(--grey-light);
+    color: white;
+    height: 24px;
+    outline: none;
+    line-height: 24px;
+    padding-left: 8px;
+    background: transparent;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus {
+    outline: solid 1px var(--main-color);
+}
+
+input[type="text"] {
+    border-radius: 5px;
+    border: solid 1px var(--grey-light);
+    color: white;
+    height: 24px;
+    outline: none;
+    line-height: 24px;
+    background: transparent;
+}
+
+button {
+    color: white;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-image: linear-gradient(265deg, var(--main-color), var(--main-color-dark));
+}
+

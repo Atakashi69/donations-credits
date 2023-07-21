@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/home.css') }}">
+    <title>Home</title>
+</head>
+<body>
+
+<header>
+    <h1>Donations Credits</h1>
+
+    <div class="nav">
+        {% if not session['auth'] %}
+        <a href="{{ url_for('login') }}">LOGIN</a>
+        {% else %}
+        <a href="{{ url_for('logout') }}">LOGOUT</a>
+        {% endif %}
+    </div>
+</header>
+
+<main>
+    {% if session['auth'] %}
+    <div class="credits_settings">
+        <label for="credits_fps">Плавность анимации: </label>
+        <input type="range" id="credits_fps" name="credits_fps" min="5" max="60" value="{{ credits_fps }}">
+        <span class="slider-value" id="credits_fps_value">{{credits_fps}}</span>
+        <label for="credits_fps">FPS</label>
+        <br>
+
+        <label for="credits_speed">Скорость анимации: </label>
+        <input type="number" id="credits_speed" name="credits_speed" min="1" max="100" value="{{ credits_speed }}">
+        <br>
+
+        <label for="credits_pause">Пауза после окончания анимации: </label>
+        <input type="number" id="credits_pause" name="credits_pause" min="0" max="10000" value="{{ credits_pause }}">
+        <label for="credits_pause">с.</label>
+        <br>
+
+        <label for="donations_url">Публичная ссылка: </label>
+        <input type="text" class="donations_url" id="donations_url" value="{{ request.root_url }}{{ url_for('donations', at=at) }}">
+        <br>
+
+        <button class="copy-url" onclick="copyURL()">COPY LINK</button>
+    </div>
+    {% endif %}
+</main>
+
+</body>
+<script src="{{ url_for('static', filename='scripts/home.js') }}"></script>
+</html>
