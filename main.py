@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.secret_key = secrets.token_urlsafe(32)
 load_dotenv()
 fernet = Fernet(os.getenv('FERNET_KEY'))
-api = DonationAlertsAPI('11200',
+api = DonationAlertsAPI('11287',
                         os.getenv('DA_KEY'),
                         'https://donations-credits.atakashi69.repl.co/login',
                         [Scopes.DONATION_INDEX])
