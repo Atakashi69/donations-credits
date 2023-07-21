@@ -1,5 +1,4 @@
 import os
-import secrets
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from cryptography.fernet import Fernet
@@ -7,8 +6,8 @@ from flask import Flask, redirect, request, render_template, session
 from donationalerts import DonationAlertsAPI, Scopes
 
 app = Flask(__name__)
-app.secret_key = secrets.token_urlsafe(32)
 load_dotenv()
+app.secret_key = os.getenv('FLASK_KEY')
 fernet = Fernet(os.getenv('FERNET_KEY'))
 api = DonationAlertsAPI('11287',
                         os.getenv('DA_KEY'),
