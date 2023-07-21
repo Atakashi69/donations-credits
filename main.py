@@ -11,8 +11,8 @@ app.secret_key = secrets.token_urlsafe(32)
 load_dotenv()
 fernet = Fernet(os.getenv('FERNET_KEY'))
 api = DonationAlertsAPI('11200',
-                        'FqRYzhOXAvY0l0ulp34aISoku5gfriKQrmSCAmPK',
-                        'http://127.0.0.1:5000/login',
+                        os.getenv('DA_KEY'),
+                        'https://donations-credits.atakashi69.repl.co/login',
                         [Scopes.DONATION_INDEX])
 
 
@@ -91,5 +91,5 @@ def donations():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host='0.0.0.0', debug=False)
     session['permanent'] = True
