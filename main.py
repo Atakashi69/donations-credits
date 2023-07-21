@@ -10,8 +10,8 @@ app = Flask(__name__)
 app.secret_key = secrets.token_urlsafe(32)
 load_dotenv()
 fernet = Fernet(os.getenv('FERNET_KEY'))
-api = DonationAlertsAPI('11200',
-                        'FqRYzhOXAvY0l0ulp34aISoku5gfriKQrmSCAmPK',
+api = DonationAlertsAPI('11287',
+                        'Ypf28CR0idvfGWFNoHPHz77bz9M16KAP1gLxYdeM',
                         'http://127.0.0.1:5000/login',
                         [Scopes.DONATION_INDEX])
 
@@ -91,5 +91,5 @@ def donations():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host='0.0.0.0', debug=False)
     session['permanent'] = True
